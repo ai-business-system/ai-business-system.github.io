@@ -2,90 +2,94 @@
   {
     "id": "proj_ai_consultant",
     "title": "SaaS AI-консультант для e-commerce каталога",
-    "subtitle": "commercial",
-    "category": "commercial",
+    "subtitle": "Коммерческий проект",
+    "category": "AI",
     "problem": "AI-ассистент для автоматизированной консультации клиентов по каталогу из 370+ SKU. Реализована RAG-система с гибридным семантическим поиском и Telegram-интерфейсом.",
-    "solution": "",
+    "solution": "Архитектура реализована успешно.",
     "result": "- Улучшено Time Reduction на 99.2%\n- Улучшено Cost Reduction\n- Улучшено Adoption",
     "tech": [
-      "tech_python",
-      "tech_postgresql",
-      "tech_pgvector",
-      "tech_openai_api",
-      "tech_aiogram3",
-      "tech_fastapi"
+      "Python",
+      "PostgreSQL",
+      "pgvector",
+      "OpenAI API",
+      "Aiogram 3",
+      "FastAPI"
     ],
     "tags": [
-      "tech_python",
-      "tech_postgresql",
-      "tech_pgvector"
+      "Python",
+      "PostgreSQL",
+      "pgvector"
     ],
-    "images": []
+    "images": [
+      "/media/GreenLeaf_bot_responce.png"
+    ]
   },
   {
     "id": "proj_mediacube_sync",
     "title": "MC PAY -> NAV Integration",
-    "subtitle": "commercial",
-    "category": "commercial",
+    "subtitle": "Коммерческий проект",
+    "category": "Интеграция",
     "problem": "ETL-пайплайн синхронизации биллинговой платформы MC PAY с ERP Microsoft Dynamics NAV. Автоматизация создания контрагентов, идемпотентная обработка, логирование и уведомления.",
-    "solution": "lesson_idempotency\nlesson_soap_efficiency\nlesson_n8n_bottleneck\nlesson_test_env\nlesson_enterprise_coordination",
+    "solution": "• Идемпотентность обязательна для ETL: Идемпотентность является обязательным свойством для любых ETL-процессов, работающих по расписанию. Проверка существования записей по бизнес-идентификатору предотвращает дублирование при повторных запусках.\n• SOAP эффективен для корпоративных ERP: SOAP остается эффективным инструментом для интеграции корпоративных ERP-систем и обеспечивает высокую производительность при работе с большими объемами данных.\n• UI оркестратора как узкое место: Основным узким местом интеграции может быть не ERP, а инструмент оркестрации или пользовательский интерфейс. При обработке >30 000 записей требуется пакетная обработка.\n• Важность тестовой среды: Полноценная тестовая среда значительно снижает риски при внедрении изменений в production. Тестирование в Sandbox-копии ERP обязательно перед публикацией.\n• Координация с администраторами ERP: При работе с enterprise-системами важную роль играет взаимодействие с администраторами и поставщиками ERP (настройка доступов, публикация сервисов, изменение конфигурации).",
     "result": "- Улучшено Time Reduction на 95.3%\n- Улучшено Time Reduction на 100%\n- Улучшено Volume Processed",
     "tech": [
-      "tech_n8n",
-      "tech_postgresql",
-      "tech_soap_api",
-      "tech_xml",
-      "tech_json",
-      "tech_slack_api",
-      "tech_ms_dynamics_nav"
+      "n8n",
+      "PostgreSQL",
+      "SOAP Web Services",
+      "XML",
+      "JSON",
+      "Slack API",
+      "Microsoft Dynamics NAV / Business Central"
     ],
     "tags": [
-      "tech_n8n",
-      "tech_postgresql",
-      "tech_soap_api"
+      "n8n",
+      "PostgreSQL",
+      "SOAP Web Services"
     ],
-    "images": []
+    "images": [
+      "/media/Mediacube_workflow_vendor_creating.png"
+    ]
   },
   {
     "id": "proj_estimate_analyzer",
     "title": "On-Premise AI-платформа для анализа строительных смет",
-    "subtitle": "pet_project",
-    "category": "pet_project",
+    "subtitle": "Pet Project",
+    "category": "AI",
     "problem": "Локальная AI-платформа для парсинга Excel-смет (SANA), нормализации данных и аналитики через Text-to-SQL. Архитектура Zero Data Leak для защиты конфиденциальности.",
-    "solution": "lesson_data_prep\nlesson_excel_parsers\nlesson_texttosql_barrier\nlesson_zero_leak_arch\nlesson_streamlit_mvp",
+    "solution": "• Подготовка данных занимает больше всего времени: Большинство времени занимает не работа LLM, а подготовка и нормализация данных. Качество парсинга напрямую влияет на результат AI-системы.\n• Специализированные парсеры для Excel: Excel-документы инженерного назначения требуют специализированных парсеров — универсальные библиотеки не всегда подходят для сложной структуры смет.\n• Text-to-SQL снижает порог входа: Text-to-SQL позволяет значительно снизить порог входа для пользователей, не владеющих SQL, предоставляя доступ к аналитике на естественном языке.\n• Разделение генерации и выполнения SQL: Конфиденциальные данные можно эффективно защищать, разделяя генерацию SQL и выполнение запросов. Во внешнюю LLM передаются только схема и вопрос, данные остаются локально.\n• Streamlit для быстрого MVP: Streamlit хорошо подходит для быстрого создания MVP и проверки инженерных гипотез, но для промышленной эксплуатации потребуются более масштабируемые решения.",
     "result": "- Улучшено Time Reduction на 99.7%",
     "tech": [
-      "tech_python",
-      "tech_pandas",
-      "tech_sqlalchemy",
-      "tech_streamlit",
-      "tech_alem_llm_api",
-      "tech_sqlite",
-      "tech_excel"
+      "Python",
+      "Pandas",
+      "SQLAlchemy",
+      "Streamlit",
+      "Alem LLM API",
+      "SQLite",
+      "Excel"
     ],
     "tags": [
-      "tech_python",
-      "tech_pandas",
-      "tech_sqlalchemy"
+      "Python",
+      "Pandas",
+      "SQLAlchemy"
     ],
     "images": []
   },
   {
     "id": "proj_global_wine_kpi",
     "title": "Автоматизация аналитики продаж и расчета KPI",
-    "subtitle": "commercial",
-    "category": "commercial",
+    "subtitle": "Коммерческий проект",
+    "category": "AI",
     "problem": "ETL-процесс подготовки управленческой отчетности, классификация ассортимента и автоматизация расчета мотивации торговой команды на базе OLAP и Excel.",
-    "solution": "",
+    "solution": "Архитектура реализована успешно.",
     "result": "- Улучшено Time Reduction на 85.7%",
     "tech": [
-      "tech_excel",
-      "tech_olap",
+      "Excel",
+      "OLAP Cubes",
       "tech_sql"
     ],
     "tags": [
-      "tech_excel",
-      "tech_olap",
+      "Excel",
+      "OLAP Cubes",
       "tech_sql"
     ],
     "images": []
