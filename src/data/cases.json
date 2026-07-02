@@ -1,0 +1,93 @@
+[
+  {
+    "id": "proj_ai_consultant",
+    "title": "SaaS AI-консультант для e-commerce каталога",
+    "subtitle": "commercial",
+    "category": "commercial",
+    "problem": "AI-ассистент для автоматизированной консультации клиентов по каталогу из 370+ SKU. Реализована RAG-система с гибридным семантическим поиском и Telegram-интерфейсом.",
+    "solution": "",
+    "result": "- Улучшено Time Reduction на 99.2%\n- Улучшено Cost Reduction\n- Улучшено Adoption",
+    "tech": [
+      "tech_python",
+      "tech_postgresql",
+      "tech_pgvector",
+      "tech_openai_api",
+      "tech_aiogram3",
+      "tech_fastapi"
+    ],
+    "tags": [
+      "tech_python",
+      "tech_postgresql",
+      "tech_pgvector"
+    ],
+    "images": []
+  },
+  {
+    "id": "proj_mediacube_sync",
+    "title": "MC PAY -> NAV Integration",
+    "subtitle": "commercial",
+    "category": "commercial",
+    "problem": "ETL-пайплайн синхронизации биллинговой платформы MC PAY с ERP Microsoft Dynamics NAV. Автоматизация создания контрагентов, идемпотентная обработка, логирование и уведомления.",
+    "solution": "lesson_idempotency\nlesson_soap_efficiency\nlesson_n8n_bottleneck\nlesson_test_env\nlesson_enterprise_coordination",
+    "result": "- Улучшено Time Reduction на 95.3%\n- Улучшено Time Reduction на 100%\n- Улучшено Volume Processed",
+    "tech": [
+      "tech_n8n",
+      "tech_postgresql",
+      "tech_soap_api",
+      "tech_xml",
+      "tech_json",
+      "tech_slack_api",
+      "tech_ms_dynamics_nav"
+    ],
+    "tags": [
+      "tech_n8n",
+      "tech_postgresql",
+      "tech_soap_api"
+    ],
+    "images": []
+  },
+  {
+    "id": "proj_estimate_analyzer",
+    "title": "On-Premise AI-платформа для анализа строительных смет",
+    "subtitle": "pet_project",
+    "category": "pet_project",
+    "problem": "Локальная AI-платформа для парсинга Excel-смет (SANA), нормализации данных и аналитики через Text-to-SQL. Архитектура Zero Data Leak для защиты конфиденциальности.",
+    "solution": "lesson_data_prep\nlesson_excel_parsers\nlesson_texttosql_barrier\nlesson_zero_leak_arch\nlesson_streamlit_mvp",
+    "result": "- Улучшено Time Reduction на 99.7%",
+    "tech": [
+      "tech_python",
+      "tech_pandas",
+      "tech_sqlalchemy",
+      "tech_streamlit",
+      "tech_alem_llm_api",
+      "tech_sqlite",
+      "tech_excel"
+    ],
+    "tags": [
+      "tech_python",
+      "tech_pandas",
+      "tech_sqlalchemy"
+    ],
+    "images": []
+  },
+  {
+    "id": "proj_global_wine_kpi",
+    "title": "Автоматизация аналитики продаж и расчета KPI",
+    "subtitle": "commercial",
+    "category": "commercial",
+    "problem": "ETL-процесс подготовки управленческой отчетности, классификация ассортимента и автоматизация расчета мотивации торговой команды на базе OLAP и Excel.",
+    "solution": "",
+    "result": "- Улучшено Time Reduction на 85.7%",
+    "tech": [
+      "tech_excel",
+      "tech_olap",
+      "tech_sql"
+    ],
+    "tags": [
+      "tech_excel",
+      "tech_olap",
+      "tech_sql"
+    ],
+    "images": []
+  }
+]

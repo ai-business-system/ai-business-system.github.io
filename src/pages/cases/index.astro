@@ -1,0 +1,92 @@
+---
+import Layout from '../../components/Layout.astro';
+import { siteConfig } from '../../config/site.js';
+
+import cases from '../../data/cases.json';
+---
+
+<Layout title="Кейсы — AiOps & Automation" description="Практические примеры внедрения автоматизации и AI-интеграций">
+  <div class="py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Hero -->
+      <div class="max-w-3xl mb-16">
+        <p class="text-accent text-sm font-semibold uppercase tracking-wider mb-3">Кейсы</p>
+        <h1 class="text-4xl sm:text-5xl font-bold text-white mb-6">
+          Практические примеры
+        </h1>
+        <p class="text-gray-400 text-lg leading-relaxed">
+          Реальные задачи и решения. Без фантастических цифр — только то, что было сделано и работает.
+        </p>
+      </div>
+
+      <!-- Cases -->
+      <div class="space-y-16">
+        {cases.map((caseItem) => (
+          <article class="glass p-8 lg:p-12">
+            <!-- Header -->
+            <div class="flex flex-wrap items-center gap-3 mb-4">
+              <span class="px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-medium">{caseItem.category}</span>
+              <div class="flex flex-wrap gap-2">
+                {caseItem.tags.map((tag) => (
+                  <span class="px-2 py-0.5 rounded bg-white/5 text-gray-400 text-xs">{tag}</span>
+                ))}
+              </div>
+            </div>
+
+            <h2 class="text-2xl sm:text-3xl font-bold text-white mb-2">{caseItem.title}</h2>
+            <p class="text-gray-400 text-base mb-8">{caseItem.subtitle}</p>
+
+            <!-- Problem → Solution → Result -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              <div>
+                <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">Проблема</h3>
+                <p class="text-gray-300 text-sm leading-relaxed whitespace-pre-line">{caseItem.problem}</p>
+              </div>
+              <div>
+                <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">Решение</h3>
+                <p class="text-gray-300 text-sm leading-relaxed whitespace-pre-line">{caseItem.solution}</p>
+              </div>
+              <div>
+                <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">Результат</h3>
+                <p class="text-gray-300 text-sm leading-relaxed">{caseItem.result}</p>
+              </div>
+            </div>
+
+            <!-- Tech stack -->
+            <div class="mt-8 pt-6 border-t border-white/5">
+              <p class="text-xs text-gray-500 font-medium uppercase tracking-wider mb-3">Стек</p>
+              <div class="flex flex-wrap gap-2">
+                {caseItem.tech.map((t) => (
+                  <span class="px-3 py-1 rounded-md bg-white/5 text-gray-400 text-xs font-mono">{t}</span>
+                ))}
+              </div>
+            </div>
+
+            <!-- Evidence / Images -->
+            {caseItem.images && caseItem.images.length > 0 && (
+              <div class="mt-8 pt-6 border-t border-white/5">
+                <p class="text-xs text-gray-500 font-medium uppercase tracking-wider mb-4">Материалы проекта</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {caseItem.images.map((img) => (
+                    <a href={img} target="_blank" rel="noopener noreferrer" class="block rounded-xl overflow-hidden border border-white/10 hover:border-accent/50 transition-colors">
+                      <img src={img} alt="Скриншот проекта" class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300" loading="lazy" />
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+          </article>
+        ))}
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-16 text-center glass p-10">
+        <h3 class="text-2xl font-bold text-white mb-3">Есть похожая задача?</h3>
+        <p class="text-gray-400 mb-6">Расскажите про ваш кейс — обсудим подход и сроки.</p>
+        <a href="/#contacts" class="inline-flex items-center px-6 py-3 rounded-xl bg-accent hover:bg-accent-dark text-dark-900 font-semibold transition-all duration-200">
+          Обсудить задачу
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

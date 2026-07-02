@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Business System | Portfolio</title>
+    <meta name="description" content="Портфолио AI-инженера: автоматизация, ML, оптимизация бизнес-процессов.">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-color: #334155;
+            --heading-color: #0f172a;
+            --success-bg: #f0fdf4;
+            --success-border: #10b981;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--heading-color);
+            margin-bottom: 10px;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #e2e8f0;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border-color: #cbd5e1;
+        }
+
+        .card-header {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f1f5f9;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            color: var(--heading-color);
+            margin: 0 0 10px 0;
+            line-height: 1.3;
+        }
+
+        .stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .tag {
+            background: #eff6ff;
+            color: var(--primary-color);
+            padding: 4px 10px;
+            border-radius: 99px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid #dbeafe;
+        }
+
+        .section-label {
+            font-weight: 700;
+            color: #475569;
+            margin-top: 15px;
+            display: block;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .result-block {
+            background: var(--success-bg);
+            border-left: 4px solid var(--success-border);
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+            margin-top: auto;
+            font-size: 0.95rem;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 80px;
+            color: #94a3b8;
+            font-size: 0.9rem;
+            padding-bottom: 20px;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            .container { padding: 20px 15px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI-Business System</h1>
+            <p class="subtitle">Разработка масштабируемых AI-решений, автоматизация и предиктивная аналитика.</p>
+        </header>
+
+        <main class="grid">
+            <!-- Case 1 -->
+            <article class="card">
+                <div class="card-header">
+                    <h2 class="card-title">🟢 AI-консультант GreenLeaf</h2>
+                    <div class="stack">
+                        <span class="tag">Python</span>
+                        <span class="tag">Aiogram 3</span>
+                        <span class="tag">Supabase</span>
+                        <span class="tag">pgvector</span>
+                        <span class="tag">OpenAI API</span>
+                    </div>
+                </div>
+                <div>
+                    <span class="section-label">Задача</span>
+                    <p>Устранить bottleneck в ручном подборе товаров (каталог 370+ SKU) и перевести поддержку на масштабируемую модель.</p>
+                    <span class="section-label">Что сделано</span>
+                    <p>Архитектура на базе векторной БД (pgvector) для семантического поиска. LLM-движок диалогов в Telegram с контекстной памятью. Внедрение микросервисной обработки и SaaS-биллинга.</p>
+                </div>
+                <div class="result-block">
+                    <span class="section-label" style="margin-top:0; color:#047857;">Результат</span>
+                    Время поиска сокращено в 10–20 раз (до 20–30 сек). Полная автоматизация первой линии поддержки. Рост конверсии в подписку.
+                </div>
+            </article>
+
+            <!-- Case 2 -->
+            <article class="card">
+                <div class="card-header">
+                    <h2 class="card-title">🟢 MediaCube — Автоматизация</h2>
+                    <div class="stack">
+                        <span class="tag">n8n</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">SOAP API</span>
+                        <span class="tag">Navision</span>
+                    </div>
+                </div>
+                <div>
+                    <span class="section-label">Задача</span>
+                    <p>Устранить ошибки и потери при работе с множественными вендорами, платежными системами и 13 юрлицами.</p>
+                    <span class="section-label">Что сделано</span>
+                    <p>Отказоустойчивый ETL-пайплайн на n8n. Алгоритмы валидации и дедупликации. Консолидация финансовых потоков (крипто, PayPal) в единый дашборд для CEO.</p>
+                </div>
+                <div class="result-block">
+                    <span class="section-label" style="margin-top:0; color:#047857;">Результат</span>
+                    Обработка данных: с 90 мин до 1–6 мин. Очистка базы от 3000+ дублей за 12 часов. Экономия ФОТ административного штата.
+                </div>
+            </article>
+
+            <!-- Case 3 -->
+            <article class="card">
+                <div class="card-header">
+                    <h2 class="card-title">🟢 Intelligent Estimate Analyzer</h2>
+                    <div class="stack">
+                        <span class="tag">Python</span>
+                        <span class="tag">Pandas</span>
+                        <span class="tag">SQLAlchemy</span>
+                        <span class="tag">Streamlit</span>
+                        <span class="tag">Alem LLM API</span>
+                    </div>
+                </div>
+                <div>
+                    <span class="section-label">Задача</span>
+                    <p>Ускорить разбор строительных смет, разделить трудоемкость и материалы, обеспечить Zero-Data-Leak.</p>
+                    <span class="section-label">Что сделано</span>
+                    <p>Парсер и аналитический движок с Text-to-SQL. Архитектура Zero-Data-Leak (данные не покидают защищенный контур). Мгновенная категоризация смет через LLM.</p>
+                </div>
+                <div class="result-block">
+                    <span class="section-label" style="margin-top:0; color:#047857;">Результат</span>
+                    Разделение работ/материалов за 15–20 сек вместо дней. Сокращение сроков подготовки КП. Соответствие требованиям гостендеров.
+                </div>
+            </article>
+
+            <!-- Case 4 -->
+            <article class="card">
+                <div class="card-header">
+                    <h2 class="card-title">🟢 MediaCube Social Listening</h2>
+                    <div class="stack">
+                        <span class="tag">Chrome Extension</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">NLP Modules</span>
+                    </div>
+                </div>
+                <div>
+                    <span class="section-label">Задача</span>
+                    <p>Мониторить реакцию аудитории в реальном времени и извлечь actionable-инсайты из комментариев YouTube.</p>
+                    <span class="section-label">Что сделано</span>
+                    <p>Браузерное расширение для асинхронного парсинга. Интеграция Sentiment Analysis и фильтрации спама. Визуализация метрик прямо в интерфейсе.</p>
+                </div>
+                <div class="result-block">
+                    <span class="section-label" style="margin-top:0; color:#047857;">Результат</span>
+                    Мгновенная выгрузка очищенных данных. Выявление репутационных рисков в реальном времени. Снижение затрат на SMM-инструменты.
+                </div>
+            </article>
+
+            <!-- Case 5 -->
+            <article class="card">
+                <div class="card-header">
+                    <h2 class="card-title">🟢 Предиктивная аналитика (Tech Orda)</h2>
+                    <div class="stack">
+                        <span class="tag">Python</span>
+                        <span class="tag">Scikit-learn</span>
+                        <span class="tag">Pandas</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">Time-Series</span>
+                    </div>
+                </div>
+                <div>
+                    <span class="section-label">Задача</span>
+                    <p>Оптимизировать складские запасы, предотвратить дефицит и излишки, повысить точность планирования закупок.</p>
+                    <span class="section-label">Что сделано</span>
+                    <p>ML-модели прогнозирования спроса (Time Series & Regression). Пайплайн обновления данных и дашборды KPI. Валидация в среде Tech Orda.</p>
+                </div>
+                <div class="result-block">
+                    <span class="section-label" style="margin-top:0; color:#047857;">Результат</span>
+                    Оптимизация оборотного капитала. Снижение dead stock и stockouts. Высокая внедренческая ценность для ритейла.
+                </div>
+            </article>
+        </main>
+
+        <footer>
+            <p>&copy; 2023 AI-Business System. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
