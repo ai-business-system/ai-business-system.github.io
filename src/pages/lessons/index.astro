@@ -1,0 +1,27 @@
+---
+import Layout from '../../components/Layout.astro';
+import decisions from '../../data/decisions.json';
+---
+
+<Layout title="Lessons Learned | AiOps & Automation" description="Выводы, ошибки и инсайты из production.">
+  <div class="py-24 lg:py-32 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mb-16">
+      <h1 class="text-4xl sm:text-5xl font-bold text-white mb-6 tracking-tight">Lessons Learned</h1>
+      <p class="text-xl text-zinc-400 max-w-2xl leading-relaxed">
+        Собранные грабли, ошибки и выводы из реальных production-проектов.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {decisions.map((d) => (
+        <div class="glass p-8 hover:border-zinc-500 transition-colors">
+          <h2 class="text-xl font-bold text-white mb-3">{d.subtitle}</h2>
+          <p class="text-zinc-400 leading-relaxed text-sm whitespace-pre-line mb-4 line-clamp-4">
+            {d.description}
+          </p>
+          <div class="text-xs font-mono text-zinc-500">#{d.category.toLowerCase()}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</Layout>

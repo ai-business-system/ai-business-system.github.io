@@ -1,19 +1,62 @@
 ---
 import Layout from '../components/Layout.astro';
 import Hero from '../components/Hero.astro';
-import Problems from '../components/Problems.astro';
-import Approach from '../components/Approach.astro';
-import NotAutomation from '../components/NotAutomation.astro';
-import Pricing from '../components/Pricing.astro';
-import Contacts from '../components/Contacts.astro';
-import { siteConfig } from '../config/site.js';
+import cases from '../data/cases.json';
 ---
 
-<Layout title="AiOps & Automation — Автоматизация бизнес-процессов и AI-интеграции" description={siteConfig.description}>
+<Layout title="Senior Software Engineer | AiOps & Automation" description="Middle+/Senior Software Engineer Portfolio">
   <Hero />
-  <Problems />
-  <Approach />
-  <NotAutomation />
-  <Pricing />
-  <Contacts />
+  
+  <!-- Key Projects Preview -->
+  <section class="py-24 bg-[#050505] border-t border-zinc-900">
+    <div class="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div class="flex items-end justify-between mb-12">
+        <div>
+          <h2 class="text-3xl font-bold text-white mb-4 tracking-tight">Key Projects</h2>
+          <p class="text-zinc-400 max-w-xl">Deep dives into production architectures, ETL pipelines, and RAG implementations.</p>
+        </div>
+        <a href="/cases/" class="hidden sm:inline-flex text-zinc-400 hover:text-white transition-colors text-sm font-medium">
+          View all {cases.length} cases &rarr;
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {cases.slice(0, 4).map((c) => (
+          <a href={`/cases/${c.id}`} class="group block p-8 rounded-2xl bg-[#0A0A0A] border border-[#262626] hover:border-zinc-500 transition-all duration-300">
+            <div class="flex justify-between items-start mb-6">
+              <span class="px-2.5 py-1 rounded-md bg-[#111] border border-[#333] text-zinc-400 text-xs font-mono">{c.category}</span>
+              <svg class="w-5 h-5 text-zinc-600 group-hover:text-white transition-colors -rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors">{c.title}</h3>
+            <p class="text-zinc-400 text-sm mb-6 line-clamp-3">{c.problem}</p>
+            <div class="flex flex-wrap gap-2">
+              {c.tags.map((t) => (
+                <span class="text-zinc-500 text-xs font-mono">{t}</span>
+              ))}
+            </div>
+          </a>
+        ))}
+      </div>
+      <div class="mt-8 text-center sm:hidden">
+        <a href="/cases/" class="inline-flex text-zinc-400 hover:text-white transition-colors text-sm font-medium">
+          View all cases &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Engineering Philosophy / Decisions Preview -->
+  <section class="py-24 bg-black border-t border-zinc-900">
+    <div class="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
+      <h2 class="text-3xl font-bold text-white mb-6 tracking-tight">Engineering Philosophy</h2>
+      <p class="text-zinc-400 max-w-2xl mx-auto mb-10 text-lg">
+        I believe in idempotent processes, zero-data-leak architectures, and picking boring technology (PostgreSQL, SOAP) when it solves enterprise problems best.
+      </p>
+      <div class="flex justify-center gap-4">
+        <a href="/decisions/" class="inline-flex items-center justify-center px-6 py-3 rounded-md bg-[#111] border border-[#333] text-white font-medium text-sm hover:bg-[#222] transition-colors">
+          Read Engineering Decisions
+        </a>
+      </div>
+    </div>
+  </section>
 </Layout>

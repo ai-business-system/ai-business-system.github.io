@@ -16,6 +16,20 @@ const { title, description } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({ 
+        startOnLoad: true,
+        theme: 'dark',
+        themeVariables: {
+          fontFamily: 'Inter, sans-serif',
+          primaryColor: '#111',
+          primaryBorderColor: '#333',
+          lineColor: '#555',
+          textColor: '#fff'
+        }
+      });
+    </script>
   </head>
   <body class="min-h-screen flex flex-col">
     <Header />

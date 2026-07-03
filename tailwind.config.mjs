@@ -6,19 +6,19 @@ export default {
     extend: {
       colors: {
         dark: {
-          900: '#0B0F19',
-          800: '#111827',
-          700: '#1F2937',
-          600: '#374151',
+          900: '#000000',
+          800: '#0A0A0A',
+          700: '#171717',
+          600: '#262626',
         },
         accent: {
-          DEFAULT: '#38BDF8',
-          light: '#7DD3FC',
-          dark: '#0284C7',
+          DEFAULT: '#FFFFFF',
+          light: '#EAEAEA',
+          dark: '#A1A1AA',
         },
         surface: {
-          DEFAULT: '#1E2537',
-          light: '#2A3348',
+          DEFAULT: '#0A0A0A',
+          light: '#171717',
         }
       },
       fontFamily: {
