@@ -18,15 +18,15 @@
   }
 
   .glass {
-    @apply bg-[#0A0A0A] border border-[#262626] rounded-lg transition-all hover:border-[#404040];
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-xl;
   }
 
   .glass-strong {
-    @apply bg-[#171717] border border-[#404040] rounded-lg;
+    @apply bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl;
   }
 
   .gradient-text {
-    @apply text-white;
+    @apply bg-gradient-to-r from-accent via-sky-300 to-accent-light bg-clip-text text-transparent;
   }
 
   .section-divider {
