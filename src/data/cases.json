@@ -1,47 +1,66 @@
 [
   {
-    "id": "proj_saaS_ai_consultant",
-    "title": "SaaS AI-консультант для e-commerce каталога",
+    "id": "proj_greenleaf_ai",
+    "title": "GreenLeaf AI Consultant",
     "subtitle": "Коммерческий проект",
     "category": "AI",
     "status": "production",
-    "problem": "AI-ассистент с RAG-архитектурой для автоматизированной консультации клиентов по каталогу из 370+ SKU. Гибридный семантический поиск и Telegram-интерфейс.",
-    "solution": "Архитектура реализована успешно.",
-    "result": "- Улучшено Time Reduction на 95.0%\n- Улучшено Adoption\n- Улучшено Throughput\n- Улучшено Cost Reduction",
+    "problem": "SaaS AI-консультант для e-commerce каталога с RAG-системой, семантическим поиском и Telegram-интерфейсом для автоматизированной консультации клиентов.",
+    "solution": "• Ограничение контекста LLM требует фильтрации истории\n• Семантический поиск по эмбеддингам лучше ключевого\n• Минимизация токенов снижает стоимость эксплуатации",
+    "result": "- Улучшено Time Reduction на 95.0%\n- Улучшено Cost Reduction",
     "tech": [
       "Python",
+      "Aiogram 3",
       "PostgreSQL",
+      "Supabase",
       "pgvector",
       "OpenAI API",
-      "Telegram API"
+      "Docker Compose",
+      "GitHub Actions",
+      "Google Cloud"
     ],
     "tags": [
       "Python",
-      "PostgreSQL",
-      "pgvector"
+      "Aiogram 3",
+      "PostgreSQL"
     ],
     "images": [
-      "/media/GreenLeaf_bot_responce.png"
+      "/media/placeholder_proj_greenleaf_ai.svg"
     ],
     "architecture": {
-      "pattern": "RAG (Retrieval-Augmented Generation)",
-      "diagram_mermaid": "graph TD\n    A[Telegram User] --> B[Telegram Bot]\n    B --> C[Python Backend]\n    C --> D[PostgreSQL + pgvector]\n    C --> E[OpenAI API]\n    D --> F[Hybrid Semantic Search]\n    F --> G[Context Assembly]\n    G --> E\n    E --> H[AI Response]\n    H --> A"
+      "pattern": "RAG + Semantic Search + Telegram Bot",
+      "diagram_mermaid": "graph TD\n    A[Telegram] --> B[Aiogram 3]\n    B --> C[Conversation Manager]\n    C --> D[History Manager]\n    D --> E[Semantic Search]\n    E --> F[Embeddings OpenAI]\n    F --> G[pgvector Supabase]\n    G --> H[GPT]\n    H --> I[Ответ пользователю]"
     },
-    "lessons_text": []
+    "lessons_text": [
+      {
+        "title": "Ограничение контекста LLM требует фильтрации истории",
+        "description": "Нельзя бесконечно отправлять историю сообщений в LLM. Необходима реализация механизма выбора только наиболее важных сообщений для сохранения контекста."
+      },
+      {
+        "title": "Семантический поиск по эмбеддингам лучше ключевого",
+        "description": "Простой поиск по ключевым словам дает неудовлетворительный результат. Внедрение поиска по embeddings значительно повышает релевантность ответов."
+      },
+      {
+        "title": "Минимизация токенов снижает стоимость эксплуатации",
+        "description": "Большая часть логики должна быть построена таким образом, чтобы максимально сократить количество токенов, что напрямую влияет на стоимость запросов к LLM."
+      }
+    ]
   },
   {
-    "id": "proj_mediacube_nav_sync",
+    "id": "proj_mediacube_sync",
     "title": "MC PAY -> NAV Integration",
     "subtitle": "Коммерческий проект",
     "category": "Интеграция",
     "status": "production",
-    "problem": "ETL-пайплайн синхронизации биллинговой платформы MC PAY с ERP Microsoft Dynamics NAV через n8n. Идемпотентное создание контрагентов, логирование и уведомления.",
-    "solution": "• Идемпотентность обязательна для ETL\n• SOAP эффективен для корпоративных ERP\n• Узкое место часто в оркестраторе, а не в ERP\n• Sandbox-среда снижает риски внедрения\n• Взаимодействие с ERP-администраторами",
-    "result": "- Улучшено Time Reduction на 95.0%\n- Улучшено Time Reduction на 100.0%\n- Улучшено Volume Processed",
+    "problem": "Интеграция биллинговой платформы MC PAY с ERP Microsoft Dynamics NAV через n8n для автоматизации создания контрагентов и финансовой отчетности.",
+    "solution": "• Идемпотентность обязательна для ETL\n• SOAP эффективен для корпоративных ERP\n• Узкое место может быть в UI оркестратора\n• Тестовая среда снижает риски production",
+    "result": "- Улучшено Time Reduction на 90.0%\n- Улучшено Time Reduction на 100.0%",
     "tech": [
       "n8n",
       "PostgreSQL",
-      "SOAP API",
+      "SQL",
+      "Microsoft Dynamics NAV / Business Central",
+      "SOAP Web Services",
       "XML",
       "JSON",
       "Slack API"
@@ -49,46 +68,42 @@
     "tags": [
       "n8n",
       "PostgreSQL",
-      "SOAP API"
+      "SQL"
     ],
     "images": [
       "/media/Mediacube_workflow_vendor_creating.png"
     ],
     "architecture": {
-      "pattern": "ETL / Scheduled Sync",
-      "diagram_mermaid": "graph TD\n    A[MC PAY PostgreSQL] -->|SQL SELECT| B[n8n Workflow]\n    B --> C{Check Vendor Exists?}\n    C -->|No| D[SOAP Create Vendor]\n    C -->|Yes| E[Skip]\n    D --> F[XML to JSON]\n    F --> G[Log & Slack Notify]\n    E --> G\n    G --> H[Microsoft Dynamics NAV]"
+      "pattern": "ETL Pipeline + Idempotent Sync + SOAP Web Services",
+      "diagram_mermaid": "graph TD\n    A[MC PAY PostgreSQL] --> B[SQL SELECT новые пользователи]\n    B --> C[n8n]\n    C --> D{Проверка существования Vendor}\n    D -->|Нет| E[SOAP Create]\n    D -->|Да| F[Пропуск]\n    E --> G[XML to JSON]\n    G --> H[Логирование]\n    H --> I[Slack Notification]\n    I --> J[Microsoft Dynamics NAV]"
     },
     "lessons_text": [
       {
         "title": "Идемпотентность обязательна для ETL",
-        "description": "Идемпотентность является обязательным свойством для любых ETL-процессов, работающих по расписанию. Проверка существования записей по бизнес-идентификатору предотвращает дублирование при повторных запусках после сбоев."
+        "description": "Идемпотентность является обязательным свойством для любых ETL-процессов, работающих по расписанию. Проверка существования записей по бизнес-идентификатору предотвращает дублирование при повторных запусках."
       },
       {
         "title": "SOAP эффективен для корпоративных ERP",
-        "description": "SOAP остается эффективным инструментом для интеграции корпоративных ERP-систем и обеспечивает высокую производительность при работе с большими объемами данных, несмотря на вербозность XML."
+        "description": "SOAP остается эффективным инструментом для интеграции корпоративных ERP-систем и обеспечивает высокую производительность при работе с большими объемами данных."
       },
       {
-        "title": "Узкое место часто в оркестраторе, а не в ERP",
-        "description": "Основным узким местом интеграции может быть не ERP, а инструмент оркестрации или пользовательский интерфейс. Пакетная обработка данных решает проблему перегрузки UI при больших выборках."
+        "title": "Узкое место может быть в UI оркестратора",
+        "description": "Основным узким местом интеграции может быть не ERP, а инструмент оркестрации или пользовательский интерфейс. Пакетная обработка данных решает проблему перегрузки UI."
       },
       {
-        "title": "Sandbox-среда снижает риски внедрения",
-        "description": "Полноценная тестовая среда значительно снижает риски при внедрении изменений в production. Тестирование в Sandbox-копии ERP перед публикацией workflow критически важно."
-      },
-      {
-        "title": "Взаимодействие с ERP-администраторами",
-        "description": "При работе с enterprise-системами важную роль играет взаимодействие с администраторами и поставщиками ERP: настройка доступов, публикация сервисов и изменение конфигурации напрямую влияют на успех интеграции."
+        "title": "Тестовая среда снижает риски production",
+        "description": "Полноценная тестовая среда значительно снижает риски при внедрении изменений в production. Использование Sandbox-копий ERP позволяет безопасно проверять workflow."
       }
     ]
   },
   {
     "id": "proj_estimate_analyzer",
-    "title": "On-Premise AI-платформа для анализа строительных смет",
+    "title": "Intelligent Estimate Analyzer",
     "subtitle": "Pet Project",
     "category": "AI",
     "status": "archived",
-    "problem": "Локальная AI-платформа для парсинга, нормализации и анализа строительных смет формата SANA. Архитектура Zero Data Leak с Text-to-SQL.",
-    "solution": "• Подготовка данных занимает больше времени, чем LLM\n• Инженерные Excel требуют специализированных парсеров\n• Text-to-SQL снижает порог входа\n• Разделение генерации SQL и выполнения запросов\n• Streamlit для MVP, но не для Prod",
+    "problem": "On-Premise AI-платформа для анализа строительных смет с Text-to-SQL интерфейсом и архитектурой нулевой утечки данных.",
+    "solution": "• Подготовка данных занимает больше времени, чем LLM\n• Excel инженерных смет требует специализированных парсеров\n• Text-to-SQL снижает порог входа\n• Разделение генерации и выполнения SQL защищает данные\n• Streamlit хорош для MVP, но требует замены для production",
     "result": "- Улучшено Time Reduction на 99.0%",
     "tech": [
       "Python",
@@ -96,8 +111,8 @@
       "SQLAlchemy",
       "Streamlit",
       "Alem LLM API",
-      "SQLite",
-      "Excel"
+      "SQL",
+      "Excel/SANA Parser"
     ],
     "tags": [
       "Python",
@@ -108,55 +123,57 @@
       "/media/placeholder_proj_estimate_analyzer.svg"
     ],
     "architecture": {
-      "pattern": "Zero Data Leak / Local Processing",
-      "diagram_mermaid": "graph TD\n    A[Excel SANA] --> B[Parser & Normalizer]\n    B --> C[PostgreSQL/SQLite]\n    C --> D[SQLAlchemy]\n    D --> E[Text-to-SQL Engine]\n    E --> F[Alem LLM API]\n    F --> G[Streamlit UI]\n    style F fill:#f9f,stroke:#333\n    style C fill:#bbf,stroke:#333"
+      "pattern": "Zero Data Leak Architecture + Text-to-SQL + Local Execution",
+      "diagram_mermaid": "graph TD\n    A[Excel SANA] --> B[Parser]\n    B --> C[Normalizer]\n    C --> D[PostgreSQL / SQLite]\n    D --> E[SQLAlchemy]\n    E --> F[Text-to-SQL]\n    F --> G[Alem LLM API]\n    G --> H[Streamlit UI]"
     },
     "lessons_text": [
       {
         "title": "Подготовка данных занимает больше времени, чем LLM",
-        "description": "Большинство времени занимает не работа LLM, а подготовка и нормализация данных. Инвестиции в качественный парсинг и структурирование окупаются многократно."
+        "description": "Большинство времени занимает не работа LLM, а подготовка и нормализация данных. Инвестиции в качественный парсинг окупаются на этапе эксплуатации."
       },
       {
-        "title": "Инженерные Excel требуют специализированных парсеров",
-        "description": "Excel-документы инженерного назначения требуют специализированных парсеров — универсальные библиотеки не всегда подходят из-за сложной структуры, слиянных ячеек и нестандартных форматов."
+        "title": "Excel инженерных смет требует специализированных парсеров",
+        "description": "Excel-документы инженерного назначения требуют специализированных парсеров — универсальные библиотеки не всегда подходят для сложной структуры смет."
       },
       {
         "title": "Text-to-SQL снижает порог входа",
-        "description": "Text-to-SQL позволяет значительно снизить порог входа для пользователей, не владеющих SQL, превращая сложные базы данных в доступные аналитические инструменты."
+        "description": "Text-to-SQL позволяет значительно снизить порог входа для пользователей, не владеющих SQL, превращая сложные базы данных в интерактивные чат-интерфейсы."
       },
       {
-        "title": "Разделение генерации SQL и выполнения запросов",
-        "description": "Конфиденциальные данные можно эффективно защищать, разделяя генерацию SQL и выполнение запросов. Передача только схемы и вопроса во внешнюю LLM исключает утечку данных."
+        "title": "Разделение генерации и выполнения SQL защищает данные",
+        "description": "Конфиденциальные данные можно эффективно защищать, разделяя генерацию SQL и выполнение запросов. Передача только схемы и вопроса во внешнюю LLM гарантирует нулевую утечку."
       },
       {
-        "title": "Streamlit для MVP, но не для Prod",
-        "description": "Streamlit хорошо подходит для быстрого создания MVP и проверки инженерных гипотез, но для промышленной эксплуатации потребуются более масштабируемые frontend-решения."
+        "title": "Streamlit хорош для MVP, но требует замены для production",
+        "description": "Streamlit хорошо подходит для быстрого создания MVP и проверки инженерных гипотез, но для промышленной эксплуатации потребуются более масштабируемые решения."
       }
     ]
   },
   {
-    "id": "proj_global_wine_reporting",
-    "title": "Автоматизация аналитики продаж и расчета KPI",
+    "id": "proj_global_wine_automation",
+    "title": "Global Wine Sales Analytics & KPI Automation",
     "subtitle": "Коммерческий проект",
     "category": "AI",
-    "status": "maintenance",
-    "problem": "ETL-процесс подготовки управленческой отчетности на базе OLAP-кубов и Excel. Автоматизация расчета мотивации торговой команды.",
+    "status": "production",
+    "problem": "Автоматизация аналитики продаж и расчета KPI торговой команды на базе OLAP-кубов и ETL-процессов.",
     "solution": "Архитектура реализована успешно.",
-    "result": "- Улучшено Time Reduction на 87.5%",
+    "result": "- Улучшено Time Reduction на 85.0%",
     "tech": [
-      "Excel",
-      "OLAP"
+      "OLAP Cubes",
+      "Excel/SANA Parser",
+      "SQL"
     ],
     "tags": [
-      "Excel",
-      "OLAP"
+      "OLAP Cubes",
+      "Excel/SANA Parser",
+      "SQL"
     ],
     "images": [
-      "/media/placeholder_proj_global_wine_reporting.svg"
+      "/media/placeholder_proj_global_wine_automation.svg"
     ],
     "architecture": {
-      "pattern": "Batch ETL / Spreadsheet Automation",
-      "diagram_mermaid": "graph TD\n    A[Sales Data] --> B[ETL Process]\n    B --> C[OLAP Cubes]\n    C --> D[Excel Reporting Template]\n    D --> E[KPI & Motivation Calc]\n    E --> F[Management Dashboard]"
+      "pattern": "ETL + OLAP Cubes + Automated Reporting",
+      "diagram_mermaid": "graph TD\n    A[Исходные данные продаж] --> B[ETL Процесс]\n    B --> C[OLAP Кубы]\n    C --> D[Модель классификации SKU]\n    D --> E[Автоматический расчет KPI]\n    E --> F[Единый шаблон отчетности]"
     },
     "lessons_text": []
   }
