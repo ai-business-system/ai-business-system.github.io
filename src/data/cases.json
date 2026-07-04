@@ -7,7 +7,7 @@
     "status": "production",
     "problem": "SaaS AI-консультант для e-commerce каталога с RAG-системой, семантическим поиском и Telegram-интерфейсом для автоматизированной консультации клиентов.",
     "solution": "• Ограничение контекста LLM требует фильтрации истории\n• Семантический поиск по эмбеддингам лучше ключевого\n• Минимизация токенов снижает стоимость эксплуатации",
-    "result": "- Улучшено Time Reduction на 95.0%\n- Улучшено Cost Reduction",
+    "result": "• Время выполнения сокращено с tens of minutes до 20-30 seconds\n• Улучшено Cost Reduction",
     "tech": [
       "Python",
       "Aiogram 3",
@@ -25,7 +25,7 @@
       "PostgreSQL"
     ],
     "images": [
-      "/media/placeholder_proj_greenleaf_ai.svg"
+      "/media/GreenLeaf_bot_responce.png"
     ],
     "architecture": {
       "pattern": "RAG + Semantic Search + Telegram Bot",
@@ -54,7 +54,7 @@
     "status": "production",
     "problem": "Интеграция биллинговой платформы MC PAY с ERP Microsoft Dynamics NAV через n8n для автоматизации создания контрагентов и финансовой отчетности.",
     "solution": "• Идемпотентность обязательна для ETL\n• SOAP эффективен для корпоративных ERP\n• Узкое место может быть в UI оркестратора\n• Тестовая среда снижает риски production",
-    "result": "- Улучшено Time Reduction на 90.0%\n- Улучшено Time Reduction на 100.0%",
+    "result": "• Время выполнения сокращено с 60-90 до 1-6\n• Время выполнения сокращено с 25-120 до 0",
     "tech": [
       "n8n",
       "PostgreSQL",
@@ -104,7 +104,7 @@
     "status": "archived",
     "problem": "On-Premise AI-платформа для анализа строительных смет с Text-to-SQL интерфейсом и архитектурой нулевой утечки данных.",
     "solution": "• Подготовка данных занимает больше времени, чем LLM\n• Excel инженерных смет требует специализированных парсеров\n• Text-to-SQL снижает порог входа\n• Разделение генерации и выполнения SQL защищает данные\n• Streamlit хорош для MVP, но требует замены для production",
-    "result": "- Улучшено Time Reduction на 99.0%",
+    "result": "• Время выполнения сокращено с hours до 15-20 seconds",
     "tech": [
       "Python",
       "Pandas",
@@ -120,7 +120,9 @@
       "SQLAlchemy"
     ],
     "images": [
-      "/media/placeholder_proj_estimate_analyzer.svg"
+      "/media/estimate analyzer-2.png",
+      "/media/estimate analyzer-3.png",
+      "/media/estimate analyzer.png"
     ],
     "architecture": {
       "pattern": "Zero Data Leak Architecture + Text-to-SQL + Local Execution",
@@ -157,7 +159,7 @@
     "status": "production",
     "problem": "Автоматизация аналитики продаж и расчета KPI торговой команды на базе OLAP-кубов и ETL-процессов.",
     "solution": "Архитектура реализована успешно.",
-    "result": "- Улучшено Time Reduction на 85.0%",
+    "result": "• Время выполнения сокращено с 30-40 до 5",
     "tech": [
       "OLAP Cubes",
       "Excel/SANA Parser",
