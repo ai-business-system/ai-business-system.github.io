@@ -4,5 +4,5 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
   output: 'static',
   integrations: [tailwind()],
-  site: 'https://yourdomain.kz',
+  site: 'https://v-artemyev-ai.github.io',
 });
